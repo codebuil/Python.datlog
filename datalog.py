@@ -19,7 +19,7 @@ def criar_mensagem():
     return mensagem
 
 def escrever_log_local(mensagem):
-    with open("data.tmp", "a") as arquivo:
+    with open("data.tmp", "w") as arquivo:
         arquivo.write(mensagem + "\n")
 
 def enviar_para_telemovel(mensagem):
@@ -46,7 +46,7 @@ def tarefa_agendada():
 
 # Agendamento da tarefa a cada 15 segundos
 schedule.every(15).seconds.do(tarefa_agendada)
-print("\x1bc\x1b[43;30m")
+print("\x1bc\x1b[43;30mstart application:")
 
 while True:
     schedule.run_pending()
